@@ -1,5 +1,5 @@
 on rightclick holding a nether star:
-	name of player's tool is "§b§lGame Join"
+	name of player's tool is "§bGame Join"
 	openGameList(player)
 
 options:
@@ -20,6 +20,8 @@ on inventory click:
 function openGameList(player: player):
 	wait a tick
 	open chest with {@rownum} row named {@invname} to {_player}
+	wait a tick
+	name of {_player}'s current inventory is {@invname}
 	# --- ゲーム一覧 ---
 	# 1. ボンバーマン
 	set slot 0 of {_player}'s current inventory to a tnt named "§6§lボンバーマン" with lore "§d§l爆弾を使って敵を殲滅!"
