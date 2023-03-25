@@ -29,7 +29,7 @@ function openGameList(player: player):
 	# --- ゲームとメニューの境界線 ---
 	set {_slot} to 9
 	loop 9 times:
-		set slot {_slot} of {_player}'s current inventory to a black stained glass pane named ""
+		set slot {_slot} of {_player}'s current inventory to a black stained glass pane named " "
 		add 1 to {_slot}
 	# ------------------------------
 	# --- サブメニュー ---
