@@ -4,7 +4,7 @@ on rightclick holding a nether star:
 
 options:
 	rownum: 3
-	invnames: "§6§lArcade Game List"
+	invname: "§6§lArcade Game List"
 
 on inventory click:
 	type of event-inventory is chest inventory
@@ -12,16 +12,16 @@ on inventory click:
 	cancel event
 	if name of clicked item contains "ボンバーマン":
 		close player's inventory
-		make player exxecute command "/join bomber"
+		make player execute command "/join bomber"
 	else if name of clicked item contains "leave":
 		close player's inventory
-		make player exxecute command "/leave"
+		make player execute command "/leave"
 
 function openGameList(player: player):
 	wait a tick
-	open chest with {@rownum} row named {@invnames} to {_player}
+	open chest with {@rownum} row named {@invname} to {_player}
 	wait a tick
-	name of {_player}'s current inventory is {@invnames}
+	name of {_player}'s current inventory is {@invname}
 	# --- ゲーム一覧 ---
 	# 1. ボンバーマン
 	set slot 0 of {_player}'s current inventory to a tnt named "§6§lボンバーマン" with lore "§d§l爆弾を使って敵を殲滅!"
