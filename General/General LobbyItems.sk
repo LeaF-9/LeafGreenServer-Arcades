@@ -1,0 +1,38 @@
+on rightclick holding a nether star:
+	name of player's tool is "§b§lGame Join"
+	openGameList(player)
+
+options:
+	rownum: 3
+	invnames: "§6§lArcade Game List"
+
+on inventory click:
+	type of event-inventory is chest inventory
+	name of event-inventory is {@invname}
+	cancel event
+	if name of clicked item contains "ボンバーマン":
+		close player's inventory
+		make player exxecute command "/join bomber"
+	else if name of clicked item contains "leave":
+		close player's inventory
+		make player exxecute command "/leave"
+
+function openGameList(player: player):
+	wait a tick
+	open chest with {@rownum} row named {@invnames} to {_player}
+	wait a tick
+	name of {_player}'s current inventory is {@invnames}
+	# --- ゲーム一覧 ---
+	# 1. ボンバーマン
+	set slot 0 of {_player}'s current inventory to a tnt named "§6§lボンバーマン" with lore "§d§l爆弾を使って敵を殲滅!"
+	# -----------------
+	# --- ゲームとメニューの境界線 ---
+	set {_slot} to 9
+	loop 9 times:
+		set slot {_slot} of {_player}'s current inventory to a black stained glass pane named ""
+		add 1 to {_slot}
+	# ------------------------------
+	# --- サブメニュー ---
+	set {_slot} to 9 * {@rownum} - 1
+	set slot {_slot} of {_player}'s current inventory to a redstone named "§c§lleave" with lore "§7ゲームから退出します"
+	# -------------------
